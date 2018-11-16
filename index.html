@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="An example demonstrating HTML5 forms.">
+        <meta name="keywords" content="HTML5,form">
+        <meta name="author" content="George Filippakis">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>HTML5 Forms</title>
+        
+        <link rel="stylesheet" type="text/css" href="styles.css">
+		
+    </head>
+    <body>
+        <header>
+            <span class="logo">Web Development Academy</span>
+        </header>
+        <main>
+			<div id="errors">
+			</div>
+			<form onsubmit="return isValidEmail('email-field')" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+				<fieldset>
+					<legend>Pure JS</legend>
+					<label for="email-field">Email:</label>
+					<input onfocus="resetErrors(this.id)" type="text" id="email-field" name="email" value="<?php if (isset($_POST['email'])) { echo $_POST['email']; } ?>">
+				   
+					<input type="reset" id="reset-btn-2" name="reset" value="Reset">
+					<input type="submit" id="submit-btn-2" name="send" value="Save">
+				</fieldset>
+			</form>
+			<form onsubmit="return isValidEmailJQ('email-field')" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+				<fieldset>
+					<legend>jQuery</legend>
+					<label for="email-field">Email:</label>
+					<input onfocus="resetErrors(this.id)" type="text" id="email-field" name="email" value="<?php if (isset($_POST['email'])) { echo $_POST['email']; } ?>">
+				   
+					<input type="reset" id="reset-btn-2" name="reset" value="Reset">
+					<input type="submit" id="submit-btn-2" name="send" value="Save">
+				</fieldset>
+			</form>
+        </main>
+        <footer>
+            <span class="credits">Coded by George Filippakis &middot; &copy; CollegeLink</span>
+        </footer>
+    </body>
+</html>
